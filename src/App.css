@@ -106,6 +106,9 @@ header nav ul li a:hover {
   background: #6366f1;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
+   {
+    
+  }
 }
 
 .hero .btn-glow:hover {
@@ -327,4 +330,22 @@ a{
 
 .clickable:hover {
   color: #a855f7;
+}
+
+@media (max-width: 600px) {
+  .hero .btn-glow,
+  form button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero .btn-glow,
+  form button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
 }
