@@ -106,10 +106,10 @@ header nav ul li a:hover {
   background: #6366f1;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-   {
+   
     
   }
-}
+
 
 .hero .btn-glow:hover {
   transform: scale(1.05);
