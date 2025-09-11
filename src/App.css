@@ -5,9 +5,33 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+  background: linear-gradient(-45deg, #18181b 0%, #1e1b4b 25%, #312e81 50%, #3a3def 75%, #9734f4 100%);
+  background-size: 800% 800%;
+  animation: gradientFlow 20s ease-in-out infinite;
   color: #e0e0e0;
 }
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  20% {
+    background-position: 50% 100%;
+  }
+  40% {
+    background-position: 100% 50%;
+  }
+  60% {
+    background-position: 50% 0%;
+  }
+  80% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .cursor {
   display: inline-block;
   width: 2px;
@@ -77,6 +101,7 @@ header nav ul li a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientText 6s linear infinite;
+
 }
 
 @keyframes gradientText {
@@ -107,7 +132,6 @@ header nav ul li a:hover {
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
    
-    
   }
 
 

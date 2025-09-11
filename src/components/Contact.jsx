@@ -1,4 +1,3 @@
-// src/components/Contact.jsx
 import React, { useState } from "react";
 import "../App.css";
 
@@ -8,42 +7,44 @@ function Contact() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState(""); // Для сообщений об успехе/ошибке
+  const [status, setStatus] = useState("");
 
-  // Обновляем состояние при вводе
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Отправка формы
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Отправка...");
 
     try {
-      const res = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://portfolio-server-hf5l.onrender.com/send",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
-      const data = await res.json();
+      const result = await response.json();
 
-      if (data.success) {
-        setStatus("Сообщение отправлено ✅");
-        setFormData({ name: "", email: "", message: "" }); // очистка формы
+      if (result.success) {
+        setStatus("Сообщение отправлено!");
+        setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus("Ошибка отправки: " + data.error);
+        setStatus("Ошибка отправки. Попробуйте позже.");
       }
-    } catch (err) {
-      setStatus("Ошибка сети: " + err.message);
+    } catch (error) {
+      console.error("Ошибка:", error);
+      setStatus("Ошибка отправки. Попробуйте позже.");
     }
   };
 
   return (
-    <section id="contact">
-      <h2>Связаться</h2>
-      <form onSubmit={handleSubmit}>
+    <section id="contact" className="contact">
+      <h2>Связаться со мной</h2>
+      <form onSubmit={handleSubmit} className="contact-form">
         <input
           type="text"
           name="name"
@@ -55,22 +56,21 @@ function Contact() {
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Ваш Email"
           value={formData.email}
           onChange={handleChange}
           required
         />
         <textarea
           name="message"
-          placeholder="Сообщение (обязательно введите ваши контактные данные, иначе сообщение не будет рассмотрено)"
-          rows="4"
+          placeholder="Сообщение"
           value={formData.message}
           onChange={handleChange}
           required
         />
         <button type="submit">Отправить</button>
       </form>
-      {status && <p style={{ marginTop: "10px", color: "#8b5cf6" }}>{status}</p>}
+      <p className="status-message">{status}</p>
     </section>
   );
 }
