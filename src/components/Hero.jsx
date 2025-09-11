@@ -1,40 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../App.css";
 
-function Hero() {
-  const fullText = "Пppивет, я Марк 👋";
-  const [displayedText, setDisplayedText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
-
-  useEffect(() => {
-    let index = 0;
-
-    const interval = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayedText((prev) => prev + fullText.charAt(index));
-        index++;
-      } else {
-        clearInterval(interval);
-        setIsTyping(false);
-      }
-    }, 150); // скорость печати
-
-    return () => clearInterval(interval);
-  }, []);
-
+function Hero({ goVideo }) {
   return (
     <section className="hero">
-      <h2>
-        {displayedText}
-        {isTyping && <span className="cursor">|</span>}
-      </h2>
-      <p>
+      <h2 className="hero-title">Привет, я Марк 👋</h2>
+      <p className="hero-description">
         Frontend Developer | React | JavaScript |{" "}
-        <span className="video-editing">
-          <a href="/video">Video Editing</a>
+        <span
+          className="video-editing"
+          style={{ color: "#8b5cf6", cursor: "pointer", textDecoration: "none" }}
+          onClick={goVideo}
+        >
+          Video Editing
         </span>
-      </p>{" "}
-      <div className="hero-buttons">
+      </p>
+      <div>
         <a href="#projects" className="btn-glow">
           Мои проекты
         </a>

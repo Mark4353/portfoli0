@@ -1,0 +1,59 @@
+.star-text-wrapper {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  white-space: nowrap;
+}
+
+.star-anim {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  font-size: 2em;
+  color: #a855f7;
+  transform: translateY(-50%);
+  animation: starFly 1.2s cubic-bezier(.7,.2,.3,1) forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes starFly {
+  0% { left: 0; opacity: 1; }
+  80% { left: 90%; opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.star-anim-text {
+  position: relative;
+  opacity: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 6s linear infinite;
+  transition: opacity 0.6s;
+  text-shadow: 0 2px 12px rgba(60,30,130,0.18);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.star-anim-text.show {
+  opacity: 1;
+  transform: scale(1.08);
+  transition: opacity 0.6s, transform 0.4s;
+}
+
+@keyframes gradientText {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (max-width: 600px) {
+  .star-anim-text {
+    font-size: 1.3rem;
+  }
+  .star-anim {
+    font-size: 1.3em;
+  }
+}

@@ -5,7 +5,7 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(-45deg, #18181b 0%, #1e1b4b 25%, #312e81 50%, #3a3def 75%, #9734f4 100%);
+  background: linear-gradient(-45deg, #18181b 0%, #1e1b4b 25%, #312e81 50%, #181ba7 75%, #721cc2 100%);
   background-size: 800% 800%;
   animation: gradientFlow 20s ease-in-out infinite;
   color: #e0e0e0;
@@ -94,19 +94,29 @@ header nav ul li a:hover {
 .hero-buttons {
   margin-top: 1.5rem;
 }
-.hero h2 {
+.hero-title {
   font-size: 4rem;
   font-weight: 800;
   background: linear-gradient(90deg, #6366f1, #a855f7, #3b82f6, #8b5cf6);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientText 6s linear infinite;
+  animation: heroGradientText 5s linear infinite;
 
 }
-
-@keyframes gradientText {
-  0%,100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+.hero-description {
+  margin-bottom: 30px;
+}
+@keyframes heroGradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .video-editing{
   color: #94a3b8;
@@ -194,18 +204,22 @@ section p {
 }
 
 .project-card {
-  background: #1e1b4b;
+  background: linear-gradient(135deg, #312e81 60%, #6366f1 100%);
+  color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(60, 30, 130, 0.18);
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   width: 100%;
   max-width: 300px;
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 8px 32px #a855f7, 0 0 24px #6366f1;
 }
 
 .project-card h3 {
@@ -330,6 +344,7 @@ a{
 .video-container {
   text-align: center;
   padding: 80px 20px;
+  
 }
 
 .video-container h2 {
@@ -350,10 +365,94 @@ a{
 .clickable {
   cursor: pointer;
   color: #94a3b8;
+  transition: color 0.3s;
 }
 
 .clickable:hover {
   color: #a855f7;
+  transition: color 0.5s;
+}
+
+/* Price Card Styles */
+.price-section {
+  max-width: 900px;
+  margin: 60px auto 40px auto;
+  padding: 2rem;
+  border-radius: 24px;
+}
+
+.price-section h2 {
+  text-align: center;
+  color: #a855f7;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.price-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 0;
+}
+
+.price-item {
+  background: linear-gradient(135deg, #312e81 60%, #6366f1 100%);
+  color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(60, 30, 130, 0.18);
+  padding: 2rem 1.5rem;
+  min-width: 220px;
+  max-width: 280px;
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.price-item:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 8px 32px #a855f7, 0 0 24px #6366f1;
+}
+
+.price-item h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #a855f7;
+  text-align: center;
+  font-weight: 700;
+}
+
+.price-item p {
+  margin: 0.5rem 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.price-item strong {
+  font-size: 1.4rem;
+  color: #fff;
+  background: linear-gradient(90deg, #a855f7, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+/* Адаптив */
+@media (max-width: 700px) {
+  .price-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .price-item {
+    max-width: 95vw;
+    min-width: 0;
+    padding: 1.5rem 1rem;
+  }
 }
 
 @media (max-width: 600px) {
