@@ -4,9 +4,9 @@ import "../App.css";
 function About() {
   return (
     <section id="about">
-      <h2>Обо мне</h2>
+      <h2>About me</h2>
       <p>
-        Я — фронтенд-разработчик, занимаюсь созданием красивых и удобных сайтов.
+        I am a front-end developer, creating beautiful and user-friendly websites.
         
       </p>
     </section>

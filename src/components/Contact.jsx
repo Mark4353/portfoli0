@@ -30,7 +30,7 @@ function Contact() {
       const result = await response.json();
 
       if (result.success) {
-        setStatus("Сообщение отправлено!");
+        setStatus("Message sent!");
         setFormData({ name: "", email: "", message: "" });
       } else {
         setStatus("Ошибка отправки. Попробуйте позже.");
@@ -43,7 +43,7 @@ function Contact() {
 
   return (
     <section id="contact" className="contact">
-      <h2>Связаться со мной</h2>
+      <h2>Contact me</h2>
       <form onSubmit={handleSubmit} className="contact-form">
         <input
           type="text"
@@ -68,7 +68,7 @@ function Contact() {
           onChange={handleChange}
           required
         />
-        <button type="submit">Отправить</button>
+        <button type="submit">Send</button>
       </form>
       <p className="status-message">{status}</p>
     </section>

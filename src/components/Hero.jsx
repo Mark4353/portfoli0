@@ -4,7 +4,7 @@ import "../App.css";
 function Hero({ goVideo }) {
   return (
     <section className="hero">
-      <h2 className="hero-title">Привет, я Марк 👋</h2>
+      <h2 className="hero-title">Hi, I'm Mark 👋</h2>
       <p className="hero-description">
         Frontend Developer | React | JavaScript |{" "}
         <span
@@ -17,14 +17,14 @@ function Hero({ goVideo }) {
       </p>
       <div>
         <a href="#projects" className="btn-glow">
-          Мои проекты
+          My projects
         </a>
         <a
           href="#contact"
           className="btn-glow"
           style={{ background: "#8b5cf6", marginLeft: "1rem" }}
         >
-          Связаться
+          Contact me
         </a>
       </div>
     </section>

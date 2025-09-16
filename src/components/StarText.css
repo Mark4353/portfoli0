@@ -38,6 +38,10 @@
   z-index: 1;
 }
 
+
+
+
+
 .star-anim-text.show {
   opacity: 1;
   transform: scale(1.08);

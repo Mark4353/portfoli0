@@ -9,7 +9,7 @@ function Video() {
     <div className="video-page">
       <div className="video-container">
         <h2>
-          <StarText text="Я Марк, видео монтажёр 🎬" />
+          <StarText text="I'm Mark, a video editor. 🎬" />
         </h2>
         <h3>
           Помимо{" "}
