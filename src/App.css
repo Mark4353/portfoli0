@@ -476,3 +476,14 @@ width: 280px;
     border-radius: 8px;
   }
 }
+
+.blue{
+  color: #3b82f6;
+ text-shadow: 0 0 19px #146bf7;
+   transition: all 0.5s;
+}
+.blue:hover{
+  color: #a855f7;
+  text-shadow: 0 0 25px #a855f7;
+  transition: all 0.5s;
+}

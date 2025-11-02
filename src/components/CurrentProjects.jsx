@@ -22,9 +22,11 @@ function CurrentProjects() {
                 Подробнее
               </a> */}
             </div>
-          </div>
+</div>
         ))}
+        
       </div>
+      <p>За новостями можно следить в моем тгк: <a className="blue" href="https://t.me/der1x222off">Тут</a></p>
     </section>
   );
 }
